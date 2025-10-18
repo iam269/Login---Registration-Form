@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ro">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,12 +9,12 @@
 </head>
 <body>
   <main class="wrap">
-    <h1 class="title">Formular de autentificare și înregistrare</h1>
+    <h1 class="title">Login & Registration Form</h1>
 
     <div class="card">
       <div class="tab-switch">
-        <button id="show-login" class="tab active">Autentificare</button>
-        <button id="show-register" class="tab">Înregistrare</button>
+        <button id="show-login" class="tab active">Login</button>
+        <button id="show-register" class="tab">Register</button>
       </div>
       <section id="login-section" class="form-section">
         <form id="login-form" novalidate>
@@ -24,12 +24,12 @@
           </div>
 
           <div class="field">
-            <label for="login-password">Parolă</label>
+            <label for="login-password">Password</label>
             <input id="login-password" name="password" type="password" required minlength="6" />
           </div>
 
           <div class="actions">
-            <button type="submit" class="btn">Autentificare</button>
+            <button type="submit" class="btn">Login</button>
           </div>
 
           <p class="message" id="login-message" aria-live="polite"></p>
@@ -39,7 +39,7 @@
       <section id="register-section" class="form-section hidden">
         <form id="register-form" novalidate>
           <div class="field">
-            <label for="reg-name">Nume</label>
+            <label for="reg-name">Name</label>
             <input id="reg-name" name="name" type="text" required />
           </div>
 
@@ -49,17 +49,17 @@
           </div>
 
           <div class="field">
-            <label for="reg-password">Parolă</label>
+            <label for="reg-password">Password</label>
             <input id="reg-password" name="password" type="password" required minlength="6" />
           </div>
 
           <div class="field">
-            <label for="reg-password2">Confirmare parolă</label>
+            <label for="reg-password2">Confirm Password</label>
             <input id="reg-password2" name="password2" type="password" required minlength="6" />
           </div>
 
           <div class="actions">
-            <button type="submit" class="btn">Înregistrează-te</button>
+            <button type="submit" class="btn">Register</button>
           </div>
 
           <p class="message" id="register-message" aria-live="polite"></p>
@@ -68,7 +68,7 @@
 
     </div>
 
-    <footer class="footer">Proiect demonstrativ — autentificare locală (client-side only)</footer>
+    <footer class="footer">Demo project — local authentication (client-side only)</footer>
   </main>
 
   <script src="js/main.js"></script>

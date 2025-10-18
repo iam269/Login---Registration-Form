@@ -1,7 +1,7 @@
-// Gestionează înregistrarea și autentificarea locală (folosește localStorage)
+// Manages local registration and authentication (uses localStorage)
 const $ = sel => document.querySelector(sel);
 
-// Elemente
+// Elements
 const loginSection = $('#login-section');
 const registerSection = $('#register-section');
 const showLoginBtn = $('#show-login');
@@ -12,7 +12,7 @@ const registerForm = $('#register-form');
 const loginMessage = $('#login-message');
 const registerMessage = $('#register-message');
 
-// Toggle între tab-uri
+// Toggle between tabs
 showLoginBtn.addEventListener('click', ()=>{
   showLogin();
 });
@@ -34,13 +34,13 @@ function showRegister(){
   clearMessages();
 }
 
-// Utilitare pentru localStorage
+// Utilities for localStorage
 function getUsers(){
   try{
     const raw = localStorage.getItem('users');
     return raw ? JSON.parse(raw) : [];
   }catch(e){
-    console.error('Eroare citire users:', e);
+    console.error('Error reading users:', e);
     return [];
   }
 }
@@ -58,12 +58,12 @@ function clearMessages(){
   registerMessage.className = 'message';
 }
 
-// Validări simple
+// Simple validations
 function isValidEmail(email){
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Înregistrare
+// Registration
 registerForm.addEventListener('submit', (e)=>{
   e.preventDefault();
   const name = registerForm['name'].value.trim();
@@ -71,16 +71,16 @@ registerForm.addEventListener('submit', (e)=>{
   const password = registerForm['password'].value;
   const password2 = registerForm['password2'].value;
 
-  if(!name){ showRegisterError('Completați numele.'); return; }
-  if(!isValidEmail(email)){ showRegisterError('Email invalid.'); return; }
-  if(password.length < 6){ showRegisterError('Parola trebuie să aibă cel puțin 6 caractere.'); return; }
-  if(password !== password2){ showRegisterError('Parolele nu se potrivesc.'); return; }
-  if(findUserByEmail(email)){ showRegisterError('Există deja un cont cu acest email.'); return; }
+  if(!name){ showRegisterError('Please enter your name.'); return; }
+  if(!isValidEmail(email)){ showRegisterError('Invalid email.'); return; }
+  if(password.length < 6){ showRegisterError('Password must be at least 6 characters.'); return; }
+  if(password !== password2){ showRegisterError('Passwords do not match.'); return; }
+  if(findUserByEmail(email)){ showRegisterError('An account with this email already exists.'); return; }
 
   const users = getUsers();
-  users.push({ name, email, password }); // NOTA: stocăm parola în clar doar pentru demo local
+  users.push({ name, email, password }); // NOTE: storing password in plain text only for local demo
   saveUsers(users);
-  showRegisterSuccess('Înregistrare reușită. Puteți să vă autentificați.');
+  showRegisterSuccess('Registration successful. You can now log in.');
   registerForm.reset();
   showLogin();
 });
@@ -94,22 +94,22 @@ function showRegisterSuccess(msg){
   registerMessage.classList.add('success');
 }
 
-// Autentificare
+// Authentication
 loginForm.addEventListener('submit', (e)=>{
   e.preventDefault();
   const email = loginForm['email'].value.trim();
   const password = loginForm['password'].value;
 
-  if(!isValidEmail(email)){ showLoginError('Email invalid.'); return; }
-  if(password.length < 6){ showLoginError('Parolă invalidă.'); return; }
+  if(!isValidEmail(email)){ showLoginError('Invalid email.'); return; }
+  if(password.length < 6){ showLoginError('Invalid password.'); return; }
 
   const user = findUserByEmail(email);
   if(!user || user.password !== password){
-    showLoginError('Email sau parola incorectă.');
+    showLoginError('Incorrect email or password.');
     return;
   }
 
-  showLoginSuccess(`Bine ai venit, ${user.name}!`);
+  showLoginSuccess(`Welcome, ${user.name}!`);
   loginForm.reset();
 });
 
@@ -122,12 +122,12 @@ function showLoginSuccess(msg){
   loginMessage.classList.add('success');
 }
 
-// autofocus pe câmpul din tabul curent la load
+// autofocus on the field in the current tab on load
 ndocument.addEventListener('DOMContentLoaded', ()=>{
   // initialize example users if none exist (optional)
   if(getUsers().length === 0){
     // preset demo user (email: demo@example.com, pass: password)
-    // Comentati linia urmatoare dacă nu doriți user demo
+    // Comment out the following line if you don't want demo user
     // saveUsers([{name:'Demo User', email:'demo@example.com', password:'password'}]);
   }
   $('#login-email').focus();

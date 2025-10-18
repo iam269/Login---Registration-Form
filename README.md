@@ -1,38 +1,40 @@
-Login & Registration Form (HTML/CSS/JavaScript)
+# Login & Registration Form (HTML/CSS/JavaScript)
 
-Proiect demonstrativ care arată cum se creează un formular de autentificare și înregistrare folosind HTML, CSS și JavaScript (fără backend).
+A demo project demonstrating how to build a responsive login and registration form using pure HTML, CSS, and JavaScript without any backend dependencies. This project showcases client-side authentication with local storage, featuring modern UI design and smooth animations.
 
-Ce conține proiectul:
-- `index.html` – pagină principală cu formularul de autentificare și înregistrare
-- `css/style.css` – stiluri responsive și moderne
-- `js/main.js` – logica client-side: validare, stocare utilizatori în `localStorage`, autentificare
+**Live Demo:** [https://iam269.github.io/Login---Registration-Form/](https://iam269.github.io/Login---Registration-Form/)
 
-Caracteristici:
-- Trecere între tab-urile Autentificare / Înregistrare
-- Validări simple (email, lungime parolă, potrivire parole)
-- Persistență locală a conturilor în `localStorage` (doar pentru demo; parolele sunt stocate în clar)
-- Mesaje de succes/eroare pentru utilizator
+What the project contains:
+- `index.html` – main page with login and registration form
+- `css/style.css` – responsive and modern styles
+- `js/main.js` – client-side logic: validation, user storage in `localStorage`, authentication
 
-Cum rulezi:
-1. Deschide `index.html` direct în browser (double-click) — funcționează pentru demo-uri simple.
+Features:
+- Switching between Login / Registration tabs
+- Simple validations (email, password length, password matching)
+- Local persistence of accounts in `localStorage` (demo only; passwords stored in plain text)
+- Success/error messages for the user
 
-sau (recomandat) rulează un server local (PowerShell):
+How to run:
+1. Open `index.html` directly in the browser (double-click) — works for simple demos.
+
+or (recommended) run a local server (PowerShell):
 
 ```powershell
-# pornește un server simplu în folderul proiectului (dacă ai Python instalat)
+# start a simple server in the project folder (if you have Python installed)
 python -m http.server 8000
-# apoi accesează http://localhost:8000 în browser
+# then access http://localhost:8000 in the browser
 ```
 
-Note de securitate:
-- Acesta este un demo client-side. Nu folosi această abordare în producție.
-- În aplicații reale, parolele trebuie gestionate pe server, criptate (hash + salt), cu transport securizat (HTTPS) și protecție împotriva atacurilor.
+Security notes:
+- This is a client-side demo. Do not use this approach in production.
+- In real applications, passwords must be handled on the server, encrypted (hash + salt), with secure transport (HTTPS) and protection against attacks.
 
-Îmbunătățiri posibile:
-- Legare la un backend real (API) și autentificare bazată pe token (JWT)
-- Hashing sigur al parolelor pe server (bcrypt, Argon2)
-- Validări suplimentare, recuperare parolă, confirmare email
+Possible improvements:
+- Connection to a real backend (API) and token-based authentication (JWT)
+- Secure password hashing on server (bcrypt, Argon2)
+- Additional validations, password recovery, email confirmation
 
-Dacă vrei, pot să adaug:
-- o versiune cu un backend Node/Express minimal pentru persistență
-- integrări de UI (framework CSS) sau teste automate
+If you want, I can add:
+- a version with a minimal Node/Express backend for persistence
+- UI integrations (CSS framework) or automated tests
