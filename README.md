@@ -2,7 +2,7 @@
 
 A demo project demonstrating how to build a responsive login and registration form using pure HTML, CSS, and JavaScript without any backend dependencies. This project showcases client-side authentication with local storage, featuring modern UI design and smooth animations.
 
-**Live Demo:** [https://iam269.github.io/Login---Registration-Form/](https://iam269.github.io/Login---Registration-Form/)
+**Live Demo:** [https://itsiamdev.github.io/Login---Registration-Form/](https://itsiamdev.github.io/Login---Registration-Form/)
 
 What the project contains:
 - `index.html` – main page with login and registration form
